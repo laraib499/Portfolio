@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <title>Lareb Farhan - Homepage</title>
+</head>
+<body>
+    
+<header>
+    <h1>Welcome to My Homepage</h1>
+    <p>Hi, I am Lareb. Welcome to my personal website.</p>
+</header>
+
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+        <div class="project">
+            <img src="./Assets/Airlinepj.png" alt="Project 1">
+            <h3>Airline Reservation System</h3>
+            <p>Airline Reservation System using MySQL.</p>
+            <button onclick="openModal('project1')">Details</button>
+        </div>
+        <div class="project">
+            <img src="./Assets/Sudokupj.png" alt="Project 2">
+            <h3>Sudoku Solver</h3>
+            <p>Sudoku solver implemented in Java.</p>
+            <button onclick="openModal('project2')">Details</button>
+        </div>
+        <div class="project">
+            <img src="./Assets/Restaurantpj.png" alt="Project 3">
+            <h3>Restaurant Management System</h3>
+            <p>Restaurant Management System using Java.</p>
+            <button onclick="openModal('project3')">Details</button>
+        </div>
+    </div>
+</section>
+
+<section id="testimonials">
+    <h2>Testimonials</h2>
+    <div class="testimonial">
+        <p>"Great work! Lareb's projects are top-notch and delivered on time."</p>
+        <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+    <div class="testimonial">
+        <p>"Lareb's attention to detail and problem-solving skills are impressive."</p>
+        <p>Lorem ipsum dolor sit amet.
+        </p>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-info">
+        <p>Email: <a href="mailto:laraibfarhan2004@gmail.com">laraibfarhan2004@gmail.com</a></p>
+        <p>Phone: <a href="tel:+923199288494">+923199288494</a></p>
+        <p>Social Media: <a href="https://www.linkedin.com/in/laraib-farhan">LinkedIn</a></p>
+    </div>
+    <div class="contact-form">
+        <h3>Send me a message:</h3>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</section>
+
+<!-- Modal for Project Details -->
+<div id="projectModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <img id="modalImg" src="" alt="">
+        <p id="modalDescription"></p>
+    </div>
+</div>
+
+<footer>
+    <div class="footerNav">
+        <h2>Contact me</h2>
+        <p>You can reach out to me through:</p>
+        <ul>
+            <li><a href="tel:+923199288494">Call me</a></li>
+            <li><a href="mailto:laraibfarhan2004@gmail.com">Send me an Email</a></li>
+            <li><a href="https://www.linkedin.com/in/laraib-farhan">Visit my LinkedIn profile</a></li>
+        </ul>
+    </div>
+</footer>
+
+<div class="mode-toggle">
+    <label class="switch">
+        <input type="checkbox" id="modeToggle">
+        <span class="slider round"></span>
+    </label>
+    <span>Dark Mode</span>
+</div>
+
+<script>
+    // Dark Mode/Light Mode Toggle
+    const modeToggle = document.getElementById('modeToggle');
+    modeToggle.addEventListener('change', () => {
+        document.body.classList.toggle('dark-mode');
+    });
+
+    // Function to open modal with project details
+    function openModal(projectId) {
+        var modal = document.getElementById("projectModal");
+        var modalTitle = document.getElementById("modalTitle");
+        var modalImg = document.getElementById("modalImg");
+        var modalDescription = document.getElementById("modalDescription");
+
+        // Set modal content based on project ID
+        switch (projectId) {
+            case 'project1':
+                modalTitle.innerText = "Airline Reservation System";
+                modalImg.src = "./Assets/Airlinepj.png";
+                modalDescription.innerText = "Airline Reservation System using MySQL.";
+                break;
+            case 'project2':
+                modalTitle.innerText = "Sudoku Solver";
+                modalImg.src = "./Assets/Sudokupj.png";
+                modalDescription.innerText = "Sudoku solver implemented in Java.";
+                break;
+            case 'project3':
+                modalTitle.innerText = "Restaurant Management System";
+                modalImg.src = "./Assets/Restaurantpj.png";
+                modalDescription.innerText = "Restaurant Management System using Java.";
+                break;
+            default:
+                modalTitle.innerText = "Project Details";
+                modalImg.src = "";
+                modalDescription.innerText = "";
+        }
+
+        modal.style.display = "block";
+    }
+
+    // Function to close modal
+    function closeModal() {
+        var modal = document.getElementById("projectModal");
+        modal.style.display = "none";
+    }
+
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+        var modal = document.getElementById("projectModal");
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>
